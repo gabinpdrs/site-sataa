@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO : à personnaliser (garder le métier + la ville dans le titre) -->
+  <title>[Nom de l'académie] – Formations esthétique à [Ville]</title>
+  <meta name="description" content="Formations esthétique à [Ville] : [Formation 1], [Formation 2], [Formation 3]. Petits groupes, certificat de fin de formation. Tarifs et programme en ligne.">
+  <link rel="canonical" href="https://www.exemple.fr/">
+
+  <!-- Aperçu lors d'un partage (Facebook, WhatsApp, Instagram…) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="[Nom de l'académie] – Formations esthétique à [Ville]">
+  <meta property="og:description" content="Découvrez nos formations, tarifs et programmes.">
+  <meta property="og:url" content="https://www.exemple.fr/">
+  <meta property="og:image" content="https://www.exemple.fr/images/apercu.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Données structurées : aident Google à comprendre qu'il s'agit d'un organisme de formation -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "[Nom de l'académie]",
+    "url": "https://www.exemple.fr/",
+    "telephone": "+33600000000",
+    "email": "contact@exemple.fr",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "[Adresse]",
+      "postalCode": "[Code postal]",
+      "addressLocality": "[Ville]",
+      "addressCountry": "FR"
+    },
+    "sameAs": ["https://www.instagram.com/[compte]"]
+  }
+  </script>
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "[Titre de la formation 1]",
+      "description": "[Description courte de la formation 1]",
+      "provider": { "@type": "Organization", "name": "[Nom de l'académie]" },
+      "offers": { "@type": "Offer", "category": "Paid", "price": "000", "priceCurrency": "EUR" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "[Titre de la formation 2]",
+      "description": "[Description courte de la formation 2]",
+      "provider": { "@type": "Organization", "name": "[Nom de l'académie]" },
+      "offers": { "@type": "Offer", "category": "Paid", "price": "000", "priceCurrency": "EUR" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "[Titre de la formation 3]",
+      "description": "[Description courte de la formation 3]",
+      "provider": { "@type": "Organization", "name": "[Nom de l'académie]" },
+      "offers": { "@type": "Offer", "category": "Paid", "price": "000", "priceCurrency": "EUR" }
+    }
+  ]
+  </script>
+
+  <style>
+    :root {
+      --creme: #faf6f2;
+      --rose: #e9cfc4;
+      --rose-fonce: #c99a89;
+      --dore: #b08d57;
+      --texte: #3a2f2b;
+      --texte-doux: #7a6b65;
+      --blanc: #ffffff;
+      --rayon: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Poppins", system-ui, sans-serif;
+      font-weight: 300;
+      color: var(--texte);
+      background: var(--creme);
+      line-height: 1.7;
+    }
+    h1, h2, h3 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; line-height: 1.2; }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+    .conteneur { width: min(1100px, 100% - 32px); margin-inline: auto; }
+    section { padding: 80px 0; }
+    .sur-titre {
+      text-transform: uppercase; letter-spacing: .2em; font-size: .75rem;
+      color: var(--dore); font-weight: 500; margin-bottom: 8px;
+    }
+    h2 { font-size: clamp(2rem, 4vw, 2.6rem); margin-bottom: 16px; }
+    .intro { color: var(--texte-doux); max-width: 640px; }
+    .centre { text-align: center; }
+    .centre .intro { margin-inline: auto; }
+
+    .bouton {
+      display: inline-block; padding: 14px 30px; border-radius: 40px;
+      background: var(--texte); color: var(--blanc); text-decoration: none;
+      font-weight: 400; letter-spacing: .03em; transition: background .2s;
+    }
+    .bouton:hover { background: var(--dore); }
+    .bouton.clair { background: transparent; border: 1px solid var(--texte); color: var(--texte); }
+    .bouton.clair:hover { background: var(--texte); color: var(--blanc); }
+
+    /* En-tête */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(250, 246, 242, .92); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0,0,0,.05);
+    }
+    .barre { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .logo { font-family: "Cormorant Garamond", serif; font-size: 1.5rem; font-weight: 600; text-decoration: none; }
+    nav ul { display: flex; gap: 28px; list-style: none; font-size: .9rem; }
+    nav a { text-decoration: none; }
+    nav a:hover { color: var(--dore); }
+    @media (max-width: 720px) { nav { display: none; } }
+
+    /* Accueil */
+    .accueil { padding: 100px 0 90px; background: linear-gradient(135deg, var(--creme) 40%, var(--rose)); }
+    .accueil .conteneur { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
+    .accueil h1 { font-size: clamp(2.4rem, 6vw, 4rem); margin-bottom: 20px; }
+    .accueil p { color: var(--texte-doux); margin-bottom: 32px; max-width: 480px; }
+    .accueil .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    @media (max-width: 820px) { .accueil .conteneur { grid-template-columns: 1fr; } }
+
+    .photo {
+      background: linear-gradient(160deg, var(--rose), var(--rose-fonce));
+      border-radius: var(--rayon); display: grid; place-items: center;
+      color: rgba(255,255,255,.9); font-size: .85rem; letter-spacing: .1em; text-transform: uppercase;
+      min-height: 200px;
+    }
+    .accueil .photo { aspect-ratio: 4 / 5; border-radius: 200px 200px var(--rayon) var(--rayon); }
+
+    /* À propos */
+    .apropos .conteneur { display: grid; grid-template-columns: 1fr 1.3fr; gap: 56px; align-items: center; }
+    .apropos .photo { aspect-ratio: 1; }
+    .chiffres { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .chiffres strong { display: block; font-family: "Cormorant Garamond", serif; font-size: 2.2rem; color: var(--dore); }
+    .chiffres span { font-size: .85rem; color: var(--texte-doux); }
+    @media (max-width: 820px) { .apropos .conteneur { grid-template-columns: 1fr; } }
+
+    /* Formations */
+    .formations { background: var(--blanc); }
+    .grille { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; margin-top: 48px; }
+    .carte {
+      background: var(--creme); border-radius: var(--rayon); overflow: hidden;
+      display: flex; flex-direction: column; border: 1px solid rgba(0,0,0,.04);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .carte:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(58,47,43,.08); }
+    .carte .photo { border-radius: 0; aspect-ratio: 16 / 10; min-height: 0; }
+    .carte-corps { padding: 28px; display: flex; flex-direction: column; flex: 1; }
+    .carte h3 { font-size: 1.6rem; margin-bottom: 8px; }
+    .carte .resume { color: var(--texte-doux); font-size: .92rem; margin-bottom: 18px; }
+    .infos { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+    .infos span { font-size: .78rem; background: var(--blanc); border: 1px solid var(--rose); padding: 4px 12px; border-radius: 20px; }
+    .carte ul { list-style: none; font-size: .9rem; margin-bottom: 24px; }
+    .carte li { padding-left: 22px; position: relative; margin-bottom: 6px; }
+    .carte li::before { content: "✓"; position: absolute; left: 0; color: var(--dore); }
+    .prix { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 20px; border-top: 1px solid var(--rose); }
+    .prix strong { font-family: "Cormorant Garamond", serif; font-size: 2rem; }
+    .prix .bouton { padding: 10px 20px; font-size: .85rem; }
+    .note { text-align: center; font-size: .85rem; color: var(--texte-doux); margin-top: 32px; }
+
+    /* Infos pratiques */
+    .pratique .grille { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .bloc { background: var(--blanc); padding: 28px; border-radius: var(--rayon); }
+    .bloc .icone { font-size: 1.6rem; margin-bottom: 10px; }
+    .bloc h3 { font-size: 1.3rem; margin-bottom: 6px; }
+    .bloc p { font-size: .9rem; color: var(--texte-doux); }
+
+    /* Avis */
+    .avis { background: var(--rose); }
+    .avis blockquote { background: var(--creme); padding: 28px; border-radius: var(--rayon); font-size: .95rem; }
+    .avis .etoiles { color: var(--dore); letter-spacing: .15em; margin-bottom: 10px; }
+    .avis cite { display: block; margin-top: 14px; font-style: normal; font-weight: 500; font-size: .85rem; }
+
+    /* FAQ */
+    .faq-liste { max-width: 760px; margin: 40px auto 0; }
+    details { background: var(--blanc); border-radius: var(--rayon); margin-bottom: 12px; padding: 20px 24px; }
+    summary { cursor: pointer; font-weight: 500; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--dore); font-size: 1.3rem; line-height: 1; }
+    details[open] summary::after { content: "–"; }
+    details p { margin-top: 12px; color: var(--texte-doux); font-size: .92rem; }
+
+    /* Contact */
+    .contact { background: var(--texte); color: var(--creme); }
+    .contact .intro { color: rgba(250,246,242,.75); }
+    .contact .sur-titre { color: var(--rose); }
+    .liens-contact { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 40px; }
+    .liens-contact a {
+      display: block; padding: 24px; border-radius: var(--rayon); text-decoration: none;
+      border: 1px solid rgba(250,246,242,.2); transition: background .2s, border-color .2s;
+    }
+    .liens-contact a:hover { background: rgba(250,246,242,.06); border-color: var(--rose); }
+    .liens-contact small { display: block; color: var(--rose); text-transform: uppercase; letter-spacing: .15em; font-size: .7rem; margin-bottom: 6px; }
+
+    /* Pied de page */
+    footer { background: #2c2421; color: rgba(250,246,242,.6); font-size: .8rem; padding: 40px 0; }
+    footer h3 { color: var(--creme); font-size: 1.1rem; margin-bottom: 8px; }
+    footer .conteneur { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="conteneur barre">
+      <a href="#" class="logo">[Nom de l'académie]</a>
+      <nav>
+        <ul>
+          <li><a href="#apropos">À propos</a></li>
+          <li><a href="#formations">Formations</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ACCUEIL -->
+    <section class="accueil">
+      <div class="conteneur">
+        <div>
+          <p class="sur-titre">Organisme de formation · [Ville]</p>
+          <h1>Formations esthétique à [Ville]</h1>
+          <p>[Phrase d'accroche : par exemple « Apprenez un métier passion auprès d'une professionnelle, en petit groupe, avec un accompagnement après la formation. »]</p>
+          <div class="actions">
+            <a href="#formations" class="bouton">Voir les formations</a>
+            <a href="#contact" class="bouton clair">Me contacter</a>
+          </div>
+        </div>
+        <div class="photo" role="img" aria-label="Photo principale">Photo principale</div>
+      </div>
+    </section>
+
+    <!-- À PROPOS -->
+    <section class="apropos" id="apropos">
+      <div class="conteneur">
+        <div class="photo" role="img" aria-label="Photo de la formatrice">Votre photo</div>
+        <div>
+          <p class="sur-titre">À propos</p>
+          <h2>[Prénom Nom], formatrice</h2>
+          <p class="intro">[Quelques lignes sur votre parcours : diplômes, années d'expérience, spécialités, pourquoi vous avez choisi de transmettre votre savoir-faire.]</p>
+          <div class="chiffres">
+            <div><strong>X ans</strong><span>d'expérience</span></div>
+            <div><strong>XXX</strong><span>élèves formées</span></div>
+            <div><strong>X max</strong><span>élèves par session</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMATIONS -->
+    <section class="formations" id="formations">
+      <div class="conteneur centre">
+        <p class="sur-titre">Nos formations</p>
+        <h2>Formations et tarifs</h2>
+        <p class="intro">[Courte phrase d'introduction sur vos formations.]</p>
+      </div>
+
+      <div class="conteneur grille">
+        <!-- Formation 1 -->
+        <article class="carte">
+          <div class="photo" role="img" aria-label="Photo formation 1">Photo formation 1</div>
+          <div class="carte-corps">
+            <h3>[Titre de la formation 1]</h3>
+            <p class="resume">[Description courte de la formation 1 : ce que l'élève saura faire à la fin.]</p>
+            <div class="infos">
+              <span>⏱ X jours</span>
+              <span>👤 Niveau débutant</span>
+              <span>📜 Certificat</span>
+            </div>
+            <ul>
+              <li>[Point du programme 1]</li>
+              <li>[Point du programme 2]</li>
+              <li>[Point du programme 3]</li>
+              <li>[Kit / support de cours inclus]</li>
+            </ul>
+            <div class="prix">
+              <strong>XXX €</strong>
+              <a href="#contact" class="bouton">Je suis intéressée</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Formation 2 -->
+        <article class="carte">
+          <div class="photo" role="img" aria-label="Photo formation 2">Photo formation 2</div>
+          <div class="carte-corps">
+            <h3>[Titre de la formation 2]</h3>
+            <p class="resume">[Description courte de la formation 2 : ce que l'élève saura faire à la fin.]</p>
+            <div class="infos">
+              <span>⏱ X jours</span>
+              <span>👤 Niveau débutant</span>
+              <span>📜 Certificat</span>
+            </div>
+            <ul>
+              <li>[Point du programme 1]</li>
+              <li>[Point du programme 2]</li>
+              <li>[Point du programme 3]</li>
+              <li>[Kit / support de cours inclus]</li>
+            </ul>
+            <div class="prix">
+              <strong>XXX €</strong>
+              <a href="#contact" class="bouton">Je suis intéressée</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Formation 3 -->
+        <article class="carte">
+          <div class="photo" role="img" aria-label="Photo formation 3">Photo formation 3</div>
+          <div class="carte-corps">
+            <h3>[Titre de la formation 3]</h3>
+            <p class="resume">[Description courte de la formation 3 : ce que l'élève saura faire à la fin.]</p>
+            <div class="infos">
+              <span>⏱ X jours</span>
+              <span>👤 Tous niveaux</span>
+              <span>📜 Certificat</span>
+            </div>
+            <ul>
+              <li>[Point du programme 1]</li>
+              <li>[Point du programme 2]</li>
+              <li>[Point du programme 3]</li>
+              <li>[Kit / support de cours inclus]</li>
+            </ul>
+            <div class="prix">
+              <strong>XXX €</strong>
+              <a href="#contact" class="bouton">Je suis intéressée</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <p class="note conteneur">Aucun paiement en ligne : contactez-moi pour connaître les prochaines dates et réserver votre place.</p>
+    </section>
+
+    <!-- INFOS PRATIQUES -->
+    <section class="pratique">
+      <div class="conteneur centre">
+        <p class="sur-titre">Infos pratiques</p>
+        <h2>Comment ça se passe ?</h2>
+      </div>
+      <div class="conteneur grille">
+        <div class="bloc">
+          <div class="icone">📍</div>
+          <h3>Lieu</h3>
+          <p>[Adresse ou ville où se déroulent les formations]</p>
+        </div>
+        <div class="bloc">
+          <div class="icone">👥</div>
+          <h3>Petits groupes</h3>
+          <p>[X élèves maximum par session / formation individuelle possible]</p>
+        </div>
+        <div class="bloc">
+          <div class="icone">🧰</div>
+          <h3>Matériel</h3>
+          <p>[Matériel fourni pendant la formation / kit à emporter]</p>
+        </div>
+        <div class="bloc">
+          <div class="icone">💬</div>
+          <h3>Suivi</h3>
+          <p>[Accompagnement après la formation : questions, conseils…]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AVIS -->
+    <section class="avis">
+      <div class="conteneur centre">
+        <p class="sur-titre">Témoignages</p>
+        <h2>Elles ont suivi la formation</h2>
+      </div>
+      <div class="conteneur grille">
+        <blockquote>
+          <div class="etoiles">★★★★★</div>
+          [Avis d'une ancienne élève.]
+          <cite>[Prénom] – [Formation suivie]</cite>
+        </blockquote>
+        <blockquote>
+          <div class="etoiles">★★★★★</div>
+          [Avis d'une ancienne élève.]
+          <cite>[Prénom] – [Formation suivie]</cite>
+        </blockquote>
+        <blockquote>
+          <div class="etoiles">★★★★★</div>
+          [Avis d'une ancienne élève.]
+          <cite>[Prénom] – [Formation suivie]</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="conteneur centre">
+        <p class="sur-titre">Questions fréquentes</p>
+        <h2>FAQ</h2>
+      </div>
+      <div class="conteneur faq-liste">
+        <details>
+          <summary>Faut-il un diplôme pour suivre la formation ?</summary>
+          <p>[Votre réponse.]</p>
+        </details>
+        <details>
+          <summary>Comment s'inscrire ?</summary>
+          <p>Contactez-moi par téléphone, e-mail ou Instagram. Je vous communique les prochaines dates disponibles et les modalités d'inscription.</p>
+        </details>
+        <details>
+          <summary>Le matériel est-il fourni ?</summary>
+          <p>[Votre réponse.]</p>
+        </details>
+        <details>
+          <summary>Reçoit-on un certificat à la fin ?</summary>
+          <p>[Votre réponse.]</p>
+        </details>
+        <details>
+          <summary>La formation est-elle finançable (CPF, OPCO) ?</summary>
+          <p>[Votre réponse. Attention : seules les formations certifiées Qualiopi peuvent être financées.]</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="conteneur centre">
+        <p class="sur-titre">Contact</p>
+        <h2>Une formation vous intéresse ?</h2>
+        <p class="intro">Contactez-moi pour connaître les prochaines dates, poser vos questions ou réserver votre place.</p>
+        <div class="liens-contact">
+          <a href="tel:+33600000000"><small>Téléphone</small>06 00 00 00 00</a>
+          <a href="https://wa.me/33600000000"><small>WhatsApp</small>Envoyer un message</a>
+          <a href="mailto:contact@exemple.fr"><small>E-mail</small>contact@exemple.fr</a>
+          <a href="https://www.instagram.com/[compte]"><small>Instagram</small>@[compte]</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="conteneur">
+      <div>
+        <h3>[Nom de l'académie]</h3>
+        <p>Formations esthétique à [Ville]</p>
+        <p>© 2026 – Tous droits réservés</p>
+      </div>
+      <div>
+        <h3>Mentions légales</h3>
+        <p>[Nom / raison sociale] – SIRET : [XXX XXX XXX XXXXX]<br>
+        Déclaration d'activité enregistrée sous le n° [XXXXXXXXXXX] auprès du préfet de région [Région].<br>
+        Cet enregistrement ne vaut pas agrément de l'État.</p>
+      </div>
+      <div>
+        <h3>Hébergement</h3>
+        <p>GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
